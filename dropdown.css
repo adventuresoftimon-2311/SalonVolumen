@@ -1,0 +1,71 @@
+/* Navigation Dropdowns */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav>ul>li {
+    position: relative;
+    padding: 10px 0;
+    /* Increase touch area/avoid gap issues */
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-white);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    min-width: 200px;
+    padding: 10px 0;
+    z-index: 1000;
+    border-top: 2px solid var(--color-gold);
+    flex-direction: column;
+    gap: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.main-nav li:hover .dropdown-menu {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    color: var(--color-text-dark);
+    text-transform: none;
+    /* Keep sub-items simpler */
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--color-bg-alt);
+    color: var(--color-gold);
+}
+
+.dropdown-menu a::after {
+    display: none;
+    /* Remove underline effect for dropdown items */
+}
+
+/* Add an indicator for dropdowns */
+.dropdown-toggle::after {
+    content: ' ▾';
+    font-size: 0.8em;
+    margin-left: 4px;
+}
